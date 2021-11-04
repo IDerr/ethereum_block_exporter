@@ -52,7 +52,6 @@ func main() {
 	registry := prometheus.NewPedanticRegistry()
 	registry.MustRegister(
 		collector.NewEthBlockNumber(rpc),
-		collector.NewEthBlockTimestamp(rpc),
 	)
 
 	handler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{
