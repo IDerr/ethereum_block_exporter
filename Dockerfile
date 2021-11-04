@@ -13,4 +13,4 @@ ENTRYPOINT ["/ethereum_exporter"]
 USER nobody
 EXPOSE 9368
 
-COPY --from=builder /ethereum_exporter/ethereum_exporter /ethereum_exporter
+COPY --from=builder /ethereum_exporter/ethereum_block_exporter /ethereum_block_exporter
