@@ -1,8 +1,7 @@
 version: '2'
 
 services:
-  ethereum_exporter:
-    container_name: ethereum_exporter
+  ethereum_block_exporter:
     image: "iderr/ethereum_block-exporter:v0.0.1"
     command: "-url http://ethereum:8545"
     ports:
