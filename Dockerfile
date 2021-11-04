@@ -12,4 +12,5 @@ FROM scratch
 ENTRYPOINT ["/ethereum_block_exporter"]
 EXPOSE 9368
 
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY --from=builder /ethereum_exporter/ethereum_block_exporter /ethereum_block_exporter
