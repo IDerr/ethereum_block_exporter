@@ -58,7 +58,16 @@ func main() {
 		ErrorLog:      log.New(os.Stderr, log.Prefix(), log.Flags()),
 		ErrorHandling: promhttp.ContinueOnError,
 	})
-
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(`<html>
+            <head><title>Ethereum Block Exporter</title></head>
+            <body>
+            <h1>Ethereum Block Exporter</h1>
+            <p><a href='/metrics'>Metrics</a></p>
+            </body>
+            </html>`))
+	})
 	http.Handle("/metrics", handler)
+	log.Println(`Listening on ` + *addr)
 	log.Fatal(http.ListenAndServe(*addr, nil))
 }
